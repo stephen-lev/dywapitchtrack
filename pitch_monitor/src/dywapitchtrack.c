@@ -24,7 +24,7 @@
  THE SOFTWARE.
 */
 
-#include "dywapitchtrack.h"
+#include "../include/dywapitchtrack.h"
 #include <math.h>
 #include <stdlib.h>
 #include <string.h> // for memset
