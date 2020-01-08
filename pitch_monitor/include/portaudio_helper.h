@@ -9,6 +9,6 @@ LIBPITCHER_EXPORTS int init();
 
 LIBPITCHER_EXPORTS int get_default_input_device();
 
-LIBPITCHER_EXPORTS void start_receiving_input(int deviceIndex);
+LIBPITCHER_EXPORTS void start_continous_pitch_detection(int deviceIndex);
 
 #endif

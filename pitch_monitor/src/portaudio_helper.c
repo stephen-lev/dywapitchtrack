@@ -23,6 +23,8 @@ int inputSamplesCallback(
     PaStreamCallbackFlags statusFlags,
     void* userData)
 {
+    //TODO: portaudio does not recommend to do the heavylifting inside the stream callback because it needs to be 'on time'
+    //refactoring pitch detection around an instance based model is suggested: doing all the necessary allocations during initialization based on more init parameters
     double result = dywapitch_computepitch(userData, input, 0, frameCount);
     if (result != 0.0) {
         printf("\n%f", result);
@@ -31,7 +33,8 @@ int inputSamplesCallback(
     return 0;
 }
 
-void start_receiving_input(int deviceIndex) {
+//TODO: implement callback for pitch value
+void start_continous_pitch_detection(int deviceIndex) {
     PaStreamParameters inputParameters;
     inputParameters.device = deviceIndex;
     PaDeviceInfo* inputInfo = Pa_GetDeviceInfo( inputParameters.device );
